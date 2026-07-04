@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+  min-height: 100vh;
+}
+
+body {
+  background: #06090F;
+  color: #E2EDF8;
+  font-family: 'Inter', sans-serif;
+  font-feature-settings: "tnum" 1;
+  overflow-x: hidden;
+}
+
+/* Premium scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #06090F; }
+::-webkit-scrollbar-thumb { background: #1E2D42; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #2A3F58; }
+
+/* Glass card utility */
+.glass {
+  background: rgba(17, 30, 46, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.glass-surface {
+  background: rgba(13, 21, 32, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Glow text utilities */
+.glow-teal   { text-shadow: 0 0 20px rgba(0,212,161,0.6); }
+.glow-red    { text-shadow: 0 0 20px rgba(255,59,92,0.6); }
+.glow-amber  { text-shadow: 0 0 20px rgba(245,166,35,0.5); }
+.glow-blue   { text-shadow: 0 0 20px rgba(56,174,255,0.6); }
+
+/* Glow border utilities */
+.border-glow-teal  { box-shadow: 0 0 0 1px rgba(0,212,161,0.4), 0 0 20px rgba(0,212,161,0.1); }
+.border-glow-red   { box-shadow: 0 0 0 1px rgba(255,59,92,0.4), 0 0 20px rgba(255,59,92,0.1); }
+.border-glow-amber { box-shadow: 0 0 0 1px rgba(245,166,35,0.4), 0 0 20px rgba(245,166,35,0.1); }
+
+/* Animated gradient background */
+.hero-gradient {
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(56,174,255,0.08) 0%, transparent 70%),
+              radial-gradient(ellipse 60% 40% at 80% 50%, rgba(0,212,161,0.04) 0%, transparent 60%),
+              #06090F;
+}
+
+/* SVG causal edge flow animation */
+.edge-flow {
+  stroke-dasharray: 8 6;
+  animation: flow 1.2s linear infinite;
+}
+
+@keyframes flow {
+  to { stroke-dashoffset: -14; }
+}
+
+/* Typewriter cursor */
+.typewriter-cursor::after {
+  content: '▋';
+  animation: blink 0.8s step-end infinite;
+  color: #38AEFF;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Node pulse rings */
+@keyframes ring-pulse {
+  0%   { transform: scale(1);   opacity: 0.8; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+.ring-pulse {
+  animation: ring-pulse 1.5s ease-out infinite;
+}
+
+/* Scan line effect */
+@keyframes scanline {
+  0%   { top: -4%; }
+  100% { top: 104%; }
+}
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, rgba(56,174,255,0.3), transparent);
+  animation: scanline 6s linear infinite;
+  pointer-events: none;
+}
+
+/* Status LED pulse */
+@keyframes led-pulse {
+  0%, 100% { box-shadow: 0 0 4px currentColor; }
+  50%       { box-shadow: 0 0 12px currentColor, 0 0 20px currentColor; }
+}
+.led { animation: led-pulse 2s ease-in-out infinite; }
+
+/* Fade in up */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up { animation: fadeInUp 0.5s ease forwards; }
+
+/* Progress bar shimmer */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.bar-shimmer {
+  background: linear-gradient(90deg, currentColor 0%, rgba(255,255,255,0.6) 50%, currentColor 100%);
+  background-size: 200% auto;
+  animation: shimmer 2s linear infinite;
+}
+
+/* Grid overlay for premium feel */
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(56,174,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56,174,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
